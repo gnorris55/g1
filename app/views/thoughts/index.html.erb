@@ -1,6 +1,13 @@
 <h1>Grom's thoughts</h1>
 <div class="thoughts">
-    <% @thoughts.each do |t|%>  
+    <% @thoughts.each do |t|%>
+
+        <% if user_signed_in?%>  
+            <small><%= t.user.email %></small><br>
+        <% else %>
+            <small> hidden user </small><br>
+        <% end %>
+
         <strong><%= t.title%></strong><br>
         <small><%= t.body %></small>
         <br>
@@ -9,3 +16,5 @@
 <br>
 
 <small class="new"><%= link_to 'new thought', new_thought_path%></small>
+
+

@@ -1,14 +1,15 @@
 class ThoughtsController < ApplicationController
+    before_action :authenticate_user!, except: [:index, :show]
     def index
         @thoughts = Thought.all
     end
 
     def new
-        @thought = Thought.new
+        @thought = current_user.thoughts.build
     end
 
     def create
-        @thought = Thought.new(thought_params)
+        @thought = current_user.thoughts.build(thought_params)
 
         if @thought.save
             redirect_to thoughts_path
