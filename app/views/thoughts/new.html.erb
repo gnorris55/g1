@@ -1,0 +1,9 @@
+<h1>New Thought</h1>
+
+<%= simple_form_for(@thought) do |t|%>
+    <div class="columns">
+        <%= t.input :title, lable: "title"%>
+        <%= t.input :body, lable: "body"%>
+        <%= t.button :submit, class: "button is-info"%>
+    </div>
+<%end %>

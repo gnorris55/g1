@@ -1,0 +1,10 @@
+<h1>Grom's thoughts</h1>
+<div class="thoughts">
+    <% @thoughts.each do |t|%>  
+        <strong><%= t.title%></strong><br>
+        <small><%= t.body %></small>
+        <br>
+    <% end %> 
+</div>
+<br>
+<small class="new"><%= link_to 'new thought', new_thought_path%></small>
